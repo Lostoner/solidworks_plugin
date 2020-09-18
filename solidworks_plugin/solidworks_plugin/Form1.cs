@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SolidWorks.Interop.sldworks;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,12 @@ namespace solidworks_plugin
 
         private void button1_Click(object sender, EventArgs e)
         {
-            doc_class.ConnectToSolidWorks();
+            ISldWorks SwApp = doc_class.ConnectToSolidWorks();
+            if(SwApp != null)
+            {
+                string msg = "This message from C#. solidworks version is " + SwApp.RevisionNumber();
+                SwApp.SendMsgToUser(msg);
+            }
         }
     }
 }
