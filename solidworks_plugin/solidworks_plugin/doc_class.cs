@@ -1,4 +1,5 @@
 ﻿using SolidWorks.Interop.sldworks;
+using SolidWorks.Interop.swconst;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -54,6 +55,17 @@ namespace solidworks_plugin
                 Debug.Print("Connection failed.");
                 return null;
             }
+        }
+
+        public static void OpenDocument()
+        {
+            string DocPath = @"D:\F\三维模型库\CAD模型库\[130616]Previous_model_set\26_Wheel\DEFAULT_12190-NY-Wheel(NY-150-50-60-20).sldprt";
+
+            string partDefaultTemplate = SwApp.GetDocumentTemplate((int)swDocumentTypes_e.swDocPART, "", 0, 0, 0);
+
+            SwApp.OpenDoc(DocPath, (int)swDocumentTypes_e.swDocPART);
+            SwApp.SendMsgToUser("Open file complete.");
+
         }
     }
 }

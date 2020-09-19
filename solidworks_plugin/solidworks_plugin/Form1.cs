@@ -27,5 +27,10 @@ namespace solidworks_plugin
                 SwApp.SendMsgToUser(msg);
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            doc_class.OpenDocument();
+        }
     }
 }
