@@ -67,5 +67,44 @@ namespace solidworks_plugin
             SwApp.SendMsgToUser("Open file complete.");
 
         }
+
+        public static void TraverseFeature(Feature Fea, bool TopLevel)
+        {
+            Feature curFea = default(Feature);
+            curFea = Fea;
+
+            while(curFea != null)
+            {
+                Debug.Print(curFea.Name);
+
+                Feature subfeat = default(Feature);
+                subfeat = (Feature)curFea.GetFirstSubFeature();
+
+                while(subfeat != null)
+                {
+                    TraverseFeature(subfeat, false);
+                    Feature nextSubFeat = default(Feature);
+                    nextSubFeat = (Feature)subfeat.GetNextSubFeature();
+                    subfeat = nextSubFeat;
+                    nextSubFeat = null;
+                }
+
+                subfeat = null;
+
+                Feature nextFeat = default(Feature);
+
+                if(TopLevel)
+                {
+                    nextFeat = (Feature)curFea.GetNextFeature();
+                }
+                else
+                {
+                    nextFeat = null;
+                }
+
+                curFea = nextFeat;
+                nextFeat = null;
+            }
+        }
     }
 }

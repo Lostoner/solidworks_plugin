@@ -32,5 +32,20 @@ namespace solidworks_plugin
         {
             doc_class.OpenDocument();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ISldWorks swApp = doc_class.ConnectToSolidWorks();
+
+            if (swApp != null)
+            {
+                ModelDoc2 swModel = (ModelDoc2)swApp.ActiveDoc;
+
+                Feature swFeat = (Feature)swModel.FirstFeature();
+
+                doc_class.TraverseFeature(swFeat, true);
+            }
+
+        }
     }
 }
