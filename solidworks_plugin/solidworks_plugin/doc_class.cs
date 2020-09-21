@@ -3,6 +3,7 @@ using SolidWorks.Interop.swconst;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -105,6 +106,13 @@ namespace solidworks_plugin
                 curFea = nextFeat;
                 nextFeat = null;
             }
+        }
+
+        public static string[] GetAllFile(string path)
+        {
+            string[] files = System.IO.Directory.GetFiles(path, "*", System.IO.SearchOption.AllDirectories);
+
+            return files;
         }
     }
 }
