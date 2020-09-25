@@ -64,5 +64,15 @@ namespace solidworks_plugin
                 Debug.Print("\n");
             }
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            doc_class.DifferenceToFeatures();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            doc_class.TrueFeature_NameOnly();
+        }
     }
 }

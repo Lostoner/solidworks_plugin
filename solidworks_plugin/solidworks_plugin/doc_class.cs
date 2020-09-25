@@ -114,5 +114,65 @@ namespace solidworks_plugin
 
             return files;
         }
+
+        public static void AutoFeature()
+        {
+            ISldWorks swApp = ConnectToSolidWorks();
+            var swModel = (ModelDoc2)swApp.ActiveDoc;
+
+
+        }
+
+        public static void DifferenceToFeatures()
+        {
+            ISldWorks swApp = ConnectToSolidWorks();
+            var swModel = (ModelDoc2)swApp.ActiveDoc;
+
+            Feature swFeat = (Feature)swModel.FirstFeature();
+            //Feature subFeat = (Feature)swFeat.GetFirstSubFeature();
+
+            Feature nextFeat = default(Feature);
+            while(swFeat != null)
+            {
+                Debug.Print(swFeat.Name);
+                nextFeat = swFeat.GetNextFeature();
+                swFeat = nextFeat;
+                nextFeat = null;
+            }
+        }
+
+        public static void TrueFeature_NameOnly()
+        {
+            ISldWorks swApp = ConnectToSolidWorks();
+            var swModel = (ModelDoc2)swApp.ActiveDoc;
+
+            Feature swFeat = (Feature)swModel.FirstFeature();
+            //int i = 0;
+            while(swFeat != null)
+            {
+                Feature SubFeature = swFeat.GetFirstSubFeature();
+                while(SubFeature != null)
+                {
+                    if(SubFeature.GetTypeName2() == "ProfileFeature")
+                    {
+                        Sketch swSketch = SubFeature.GetSpecificFeature2();
+                        //i++;
+                        //Debug.Print("\: ", i);
+
+                        //string skePrint = swSketch.ToString();
+                        string skePrint = SubFeature.Name;
+                        Debug.Print(skePrint);
+                    }
+
+                    Feature NextSubFeat = SubFeature.GetNextSubFeature();
+                    SubFeature = NextSubFeat;
+                    NextSubFeat = null;
+                }
+
+                Feature NextFea = swFeat.GetNextFeature();
+                swFeat = NextFea;
+                NextFea = null;
+            }
+        }
     }
 }
