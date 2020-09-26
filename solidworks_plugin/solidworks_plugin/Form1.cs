@@ -15,7 +15,7 @@ namespace solidworks_plugin
 
     public partial class Form1 : Form
     {
-        string path = @"D:\F\三维模型库\CAD模型库\[130616]Previous_model_set\24_Screw";
+        string path = @"D:\F\三维模型库\Parts_WithFeature";
 
         public Form1()
         {
@@ -73,6 +73,18 @@ namespace solidworks_plugin
         private void button6_Click(object sender, EventArgs e)
         {
             doc_class.TrueFeature_NameOnly();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            string[] files;
+
+            files = doc_class.GetAllFile(path);
+
+            foreach (string f in files)
+            {
+                doc_class.OpenAndClose(f);
+            }
         }
     }
 }
