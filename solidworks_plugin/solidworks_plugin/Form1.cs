@@ -86,5 +86,13 @@ namespace solidworks_plugin
                 doc_class.OpenAndClose(f);
             }
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            string license = @"Y6T54-H6G5N-H65GG-6YT5M-7H65B";
+            string path = @"D:\F\三维模型库\Parts_WithFeature\11.SLDPRT";
+
+            doc_class.DirectDocument(path, license);
+        }
     }
 }

@@ -1,0 +1,10 @@
+D:\project_file\solidworks_plugin\solidworks_plugin\solidworks_plugin\bin\x64\Debug\solidworks_plugin.exe.config
+D:\project_file\solidworks_plugin\solidworks_plugin\solidworks_plugin\bin\x64\Debug\solidworks_plugin.exe
+D:\project_file\solidworks_plugin\solidworks_plugin\solidworks_plugin\bin\x64\Debug\solidworks_plugin.pdb
+D:\project_file\solidworks_plugin\solidworks_plugin\solidworks_plugin\obj\x64\Debug\solidworks_plugin.csprojAssemblyReference.cache
+D:\project_file\solidworks_plugin\solidworks_plugin\solidworks_plugin\obj\x64\Debug\solidworks_plugin.Form1.resources
+D:\project_file\solidworks_plugin\solidworks_plugin\solidworks_plugin\obj\x64\Debug\solidworks_plugin.Properties.Resources.resources
+D:\project_file\solidworks_plugin\solidworks_plugin\solidworks_plugin\obj\x64\Debug\solidworks_plugin.csproj.GenerateResource.cache
+D:\project_file\solidworks_plugin\solidworks_plugin\solidworks_plugin\obj\x64\Debug\solidworks_plugin.csproj.CoreCompileInputs.cache
+D:\project_file\solidworks_plugin\solidworks_plugin\solidworks_plugin\obj\x64\Debug\solidworks_plugin.exe
+D:\project_file\solidworks_plugin\solidworks_plugin\solidworks_plugin\obj\x64\Debug\solidworks_plugin.pdb

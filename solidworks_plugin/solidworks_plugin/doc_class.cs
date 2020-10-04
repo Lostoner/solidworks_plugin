@@ -1,5 +1,6 @@
 ﻿using SolidWorks.Interop.sldworks;
 using SolidWorks.Interop.swconst;
+using SolidWorks.Interop.swdocumentmgr;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,6 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace solidworks_plugin
 {
@@ -194,6 +196,22 @@ namespace solidworks_plugin
             TrueFeature_NameOnly();
 
             SwApp.CloseDoc(path);
+        }
+
+        public static void DirectDocument(string path, string license)
+        {
+            //setDocType();
+            SwDmDocumentType dmDocType;
+            //setDocType();
+
+            SwDMClassFactory dmClassFact = new SwDMClassFactory();
+            SwDMApplication4 dmDocMgr = (SwDMApplication4)dmClassFact.GetApplication(license);
+            //SwDMDocument18 dmDoc = (SwDMDocument18)dmDocMgr.GetDocument(path, true)
+            if(dmDocMgr != null)
+            {
+                Debug.Print("Yes!");
+            }
+
         }
     }
 }
