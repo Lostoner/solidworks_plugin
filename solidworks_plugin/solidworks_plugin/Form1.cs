@@ -16,6 +16,30 @@ namespace solidworks_plugin
     public partial class Form1 : Form
     {
         string path = @"D:\F\三维模型库\Parts_WithFeature";
+        string license = @"Y6T54-H6G5N-H65GG-6YT5M-7H65B";
+        public enum SwDmDocumentVersion_e
+        {
+            SwDmDocumentVersionSOLIDWORKS_2000 = 1500,
+            SwDmDocumentVersionSOLIDWORKS_2001 = 1750,
+            SwDmDocumentVersionSOLIDWORKS_2001Plus = 1950,
+            SwDmDocumentVersionSOLIDWORKS_2003 = 2200,
+            SwDmDocumentVersionSOLIDWORKS_2004 = 2500,
+            SwDmDocumentVersionSOLIDWORKS_2005 = 2800,
+            SwDmDocumentVersionSOLIDWORKS_2006 = 3100,
+            SwDmDocumentVersionSOLIDWORKS_2007 = 3400,
+            SwDmDocumentVersionSOLIDWORKS_2008 = 3800,
+            SwDmDocumentVersionSOLIDWORKS_2009 = 4100,
+            SwDmDocumentVersionSOLIDWORKS_2010 = 4400,
+            SwDmDocumentVersionSOLIDWORKS_2011 = 4700,
+            SwDmDocumentVersionSOLIDWORKS_2012 = 5000,
+            SwDmDocumentVersionSOLIDWORKS_2013 = 6000,
+            SwDmDocumentVersionSOLIDWORKS_2014 = 7000,
+            SwDmDocumentVersionSOLIDWORKS_2015 = 8000,
+            SwDmDocumentVersionSOLIDWORKS_2016 = 9000,
+            SwDmDocumentVersionSOLIDWORKS_2017 = 10000,
+            SwDmDocumentVersionSOLIDWORKS_2018 = 11000
+        }
+
 
         public Form1()
         {

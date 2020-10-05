@@ -202,7 +202,6 @@ namespace solidworks_plugin
         {
             //setDocType();
             SwDmDocumentType dmDocType;
-            //setDocType();
 
             SwDMClassFactory dmClassFact = new SwDMClassFactory();
             SwDMApplication4 dmDocMgr = (SwDMApplication4)dmClassFact.GetApplication(license);
@@ -212,6 +211,58 @@ namespace solidworks_plugin
                 Debug.Print("Yes!");
             }
 
+        }
+
+        public static void DirectDocument1(string sDocFileName, string license)
+        {
+            SwDMClassFactory swClassFact = default(SwDMClassFactory);
+            SwDMApplication swDocMgr = default(SwDMApplication);
+            SwDMDocument10 swDoc = default(SwDMDocument10);
+            SwDMConfigurationMgr swCfgMgr = default(SwDMConfigurationMgr);
+            string[] vCfgNameArr = null;
+            SwDMConfiguration2 swCfg = default(SwDMConfiguration2);
+            SwDmDocumentType nDocType = 0;
+            SwDmPreviewError nError = 0;
+            SwDmBodyError nBodyError = 0;
+            SwDmDocumentOpenError nRetVal = 0;
+            int i = 0;
+            string sFileName = "multi-inter";
+
+            if (sDocFileName.EndsWith("sldprt"))
+            {
+                nDocType = SwDmDocumentType.swDmDocumentPart;
+            }
+            else if (sDocFileName.EndsWith("sldasm"))
+            {
+                nDocType = SwDmDocumentType.swDmDocumentAssembly;
+            }
+            else if (sDocFileName.EndsWith("slddrw"))
+            {
+                nDocType = SwDmDocumentType.swDmDocumentDrawing;
+            }
+            else
+            {
+                // Not a SOLIDWORKS file
+                nDocType = SwDmDocumentType.swDmDocumentUnknown;
+                return;
+            }
+
+            if((nDocType != SwDmDocumentType.swDmDocumentDrawing))
+            {
+                SwDMComponent2 swDocMgr2;
+
+                swClassFact = new SwDMClassFactory();
+                swDocMgr = (SwDMApplication)swClassFact.GetApplication(license);
+                swDocMgr2 = (SwDMComponent2)swClassFact.GetApplication(license);
+                //swDoc = (SwDMDocument10)swDocMgr.GetDocument(sDocFileName, nDocType, true, out nRetVal);
+                swDoc = (SwDMDocument10)swDocMgr.GetDocument(sDocFileName, nDocType, true, out nRetVal);
+                
+                
+
+                swCfgMgr = swDoc.ConfigurationManager;
+
+                
+            }
         }
     }
 }
